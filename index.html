@@ -1,12 +1,91 @@
-<!DOCTYPE html>
 <html>
-<head>
-<title>Index html</title>
-</head>
-<body>
+    <head>
+        <title>Data Diri</title>
+        <style>
+            body, html {
+                height: 100%;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white; /* Set background to white or remove entirely */
+            }
 
-<h1>Neisya Nayyara Audiva</h1>
-<p>1202223140</p>
+            .image-container {
+                text-align: center;
+            }
 
-</body>
+            img.circle-image {
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+            .social-icons img {
+                width: 30px;  /* Sesuaikan ukuran logo social media */
+                height: 30px;
+                margin: 0 10px; /* Memberikan jarak antar ikon */
+                border-radius: 50%; /* Untuk membulatkan ikon jika diinginkan */
+            }
+
+            .social-icons {
+                margin-top: 15px;
+            }
+
+            .date-time {
+                margin-top: 20px;
+                font-size: 18px;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="image-container">
+            <img src="pasfoto ca.jpg" alt="Gambar Lingkaran" class="circle-image">
+            <h1>Neisya Nayyara Audiva</h1>
+            <h2>1202223140</h2>
+
+            <div class="social-icons">
+                <a href="https://www.instagram.com/neisya_nayyara" target="_blank">
+                    <img src="ig.jpeg" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/in/neisya-nayyara-audiva-b150a02a2/" target="_blank">
+                    <img src="ikon linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/neisyanayyaraaudiva/" target="_blank">
+                    <img src="github.jpeg" alt="GitHub">
+                </a>
+            </div>
+
+            <div class="date-time" id="dateTimeDisplay">
+                <!-- Tanggal dan Waktu akan tampil di sini -->
+            </div>
+        </div>
+
+        <script>
+            function updateDateTime() {
+                const dateTimeDisplay = document.getElementById('dateTimeDisplay');
+                const now = new Date();
+
+                // Opsi untuk menampilkan tanggal
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+                // Format tanggal
+                const date = now.toLocaleDateString('id-ID', options);
+
+                // Format waktu
+                const time = now.toLocaleTimeString('id-ID');
+
+                // Update konten elemen dengan tanggal dan waktu
+                dateTimeDisplay.innerHTML = date + ' | ' + time;
+            }
+
+            // Memperbarui setiap detik
+            setInterval(updateDateTime, 1000);
+
+            // Jalankan pertama kali saat halaman dimuat
+            updateDateTime();
+        </script>
+    </body>
 </html>
